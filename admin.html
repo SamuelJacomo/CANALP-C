@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#12372a">
+  <title>Painel P&C | Canal de Escuta</title><link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script><script defer src="config.js"></script><script defer src="admin.js"></script>
+</head>
+<body>
+  <main class="page admin-page">
+    <header class="brand"><div class="brand-mark">P&amp;C</div><div><p class="eyebrow">ÁREA RESTRITA</p><h1>Painel de Escuta</h1></div><a class="small-link" href="index.html">Ver formulário ↗</a></header>
+    <section id="login-card" class="form-card">
+      <div class="card-heading"><div class="icon-box">⌑</div><div><h2>Acesso do P&amp;C</h2><p>Entre com seu e-mail autorizado.</p></div></div>
+      <form id="login-form"><label for="email">E-mail</label><input id="email" type="email" autocomplete="username" required placeholder="nome@empresa.com">
+        <label for="password">Senha</label><input id="password" type="password" autocomplete="current-password" required placeholder="Sua senha">
+        <button id="login-button" type="submit">Entrar no painel <span>→</span></button><p id="login-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+      <p class="hint">As contas devem ser criadas pela administração do Supabase. O cadastro público de usuários deve ficar desativado.</p>
+    </section>
+    <section id="dashboard" class="hidden">
+      <div class="dashboard-head"><div><p class="eyebrow">VISUALIZAÇÃO PRIVADA</p><h2>Manifestações recebidas</h2><p class="subtle">Este painel é somente para leitura. Não é possível responder por aqui.</p></div><button id="logout-button" class="secondary-button">Sair</button></div>
+      <div class="toolbar"><input id="search" type="search" placeholder="Buscar por nome ou mensagem"><button id="refresh-button" class="secondary-button">Atualizar</button></div>
+      <p id="dashboard-status" class="status" role="status" aria-live="polite"></p>
+      <div id="feedback-list" class="feedback-list"></div>
+    </section>
+    <footer><span>Confidencial</span><span>•</span><span>Acesso exclusivo ao P&amp;C</span></footer>
+  </main>
+</body></html>

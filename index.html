@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#12372a"><meta name="description" content="Canal de escuta de Pessoas e Cultura.">
+  <title>Canal de Escuta | P&C</title><link rel="stylesheet" href="styles.css">
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script defer src="config.js"></script><script defer src="app.js"></script>
+</head>
+<body>
+  <main class="page">
+    <header class="brand"><div class="brand-mark">P&amp;C</div><div><p class="eyebrow">PESSOAS &amp; CULTURA</p><h1>Canal de Escuta</h1></div></header>
+    <section class="intro"><span class="pill"><span class="dot"></span> Sua voz importa</span><h2>Queremos ouvir você.</h2>
+      <p>Compartilhe uma ideia, sugestão, preocupação ou reclamação. Este espaço existe para que sua manifestação chegue ao time de Pessoas &amp; Cultura.</p></section>
+    <section class="form-card" aria-labelledby="form-title">
+      <div class="card-heading"><div class="icon-box">✳</div><div><h2 id="form-title">Sua manifestação</h2><p>Preencha os campos abaixo.</p></div></div>
+      <form id="feedback-form">
+        <label for="name">Nome <span class="optional">(opcional)</span></label>
+        <input id="name" name="name" autocomplete="name" maxlength="120" placeholder="Se quiser, informe seu nome">
+        <label for="message">O que você gostaria de compartilhar com o P&amp;C? <span class="required">*</span></label>
+        <textarea id="message" name="message" rows="6" maxlength="5000" required placeholder="Escreva livremente. Sua mensagem pode ser uma ideia, sugestão, reclamação ou qualquer outro assunto."></textarea>
+        <p class="hint">Não é necessário escolher uma categoria. Você pode enviar sua manifestação sem se identificar.</p>
+        <div class="privacy-note"><span>🔒</span><p>As manifestações são destinadas ao P&amp;C. Evite incluir senhas ou dados pessoais de terceiros que não sejam necessários. Mesmo sem nome, o conteúdo pode conter detalhes que identifiquem você.</p></div>
+        <button id="submit-button" type="submit">Enviar manifestação <span>→</span></button><p id="form-status" class="status" role="status" aria-live="polite"></p>
+      </form>
+    </section>
+    <footer><span>Canal de Escuta</span><span>•</span><span>Pessoas &amp; Cultura</span></footer>
+  </main>
+</body></html>
