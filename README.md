@@ -3,7 +3,7 @@
 Aplicação estática em português para GitHub Pages, com formulário público e painel de consulta com autenticação Supabase.
 
 ## O que está incluído
-- Formulário responsivo com uma pergunta aberta e nome opcional.
+- Formulário responsivo com uma pergunta aberta e employee_name opcional.
 - Timestamp criado pelo banco Supabase.
 - Painel `admin.html` com login por e-mail/senha, pesquisa e ordenação por data.
 - Visualização apenas: não existem funções de resposta, edição ou exclusão no painel.
@@ -16,7 +16,7 @@ Aplicação estática em português para GitHub Pages, com formulário público 
 4. Coloque esses valores em `config.js`.
 5. Em **Authentication → Sign In / Providers** (ou configurações de signup), desative o cadastro público.
 6. Crie manualmente contas com e-mail e senha para os integrantes autorizados do P&C em **Authentication → Users**.
-7. Teste: envie uma manifestação anônima e outra identificada; confirme que aparecem em `manifestacoes`. Em uma janela anônima, confirme que a tabela não pode ser consultada diretamente.
+7. Teste: envie uma manifestação anônima e outra identificada; confirme que aparecem em `escuta_submissions`. Em uma janela anônima, confirme que a tabela não pode ser consultada diretamente.
 
 **Atenção:** a política SQL permite leitura a qualquer conta autenticada nesse projeto. Por isso, desativar signup público e controlar rigorosamente as contas é obrigatório. Para organizações que precisem de autorização mais granular, use uma tabela de membros/roles e uma política RLS específica.
 
@@ -29,7 +29,7 @@ Aplicação estática em português para GitHub Pages, com formulário público 
 
 ## 3. Segurança e privacidade
 - A chave pública `anon`/`publishable` pode estar no frontend; a chave `service_role` nunca deve estar no GitHub.
-- O nome é opcional, mas isso não garante anonimato absoluto: o texto pode identificar a pessoa e logs técnicos da plataforma podem existir.
+- O employee_name é opcional, mas isso não garante anonimato absoluto: o texto pode identificar a pessoa e logs técnicos da plataforma podem existir.
 - Defina aviso de privacidade, finalidade, prazo de retenção, responsáveis pelo acesso e procedimento interno conforme a LGPD.
 - Antes de uso corporativo, considere limitar spam/abuso com CAPTCHA ou Edge Function, backups e revisão de segurança.
 - O painel usa o fuso `America/Sao_Paulo`; o banco mantém o timestamp em `timestamptz`.
@@ -42,3 +42,7 @@ Aplicação estática em português para GitHub Pages, com formulário público 
 - `styles.css`: estilo responsivo.
 - `config.js`: configuração pública do Supabase.
 - `supabase.sql`: tabela, grants e RLS.
+
+
+## Projeto já conectado
+Este pacote já aponta para o projeto Supabase `voz-ativa-pc` usando a chave pública publishable. Nunca adicione uma chave `service_role` ao frontend.

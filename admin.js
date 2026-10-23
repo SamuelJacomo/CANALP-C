@@ -16,7 +16,7 @@
   }
   function render() {
     const term = search.value.trim().toLocaleLowerCase("pt-BR");
-    const filtered = allItems.filter(item => `${item.nome || "anônimo"} ${item.mensagem}`.toLocaleLowerCase("pt-BR").includes(term));
+    const filtered = allItems.filter(item => `${item.employee_name || "anônimo"} ${item.message}`.toLocaleLowerCase("pt-BR").includes(term));
     list.replaceChildren();
     const count = document.createElement("p"); count.className = "count";
     count.textContent = `${filtered.length} manifestação(ões)${term ? " encontrada(s)" : ""}`;
@@ -29,15 +29,15 @@
     filtered.forEach(item => {
       const card = document.createElement("article"); card.className = "feedback-item";
       const meta = document.createElement("div"); meta.className = "feedback-meta";
-      const who = document.createElement("span"); who.className = "feedback-name"; who.textContent = item.nome?.trim() || "Manifestação anônima";
-      const when = document.createElement("time"); when.dateTime = item.enviado_em; when.textContent = formatDate(item.enviado_em) + " (horário de Brasília)";
-      const message = document.createElement("div"); message.className = "feedback-message"; message.textContent = item.mensagem;
+      const who = document.createElement("span"); who.className = "feedback-name"; who.textContent = item.employee_name?.trim() || "Manifestação anônima";
+      const when = document.createElement("time"); when.dateTime = item.created_at; when.textContent = formatDate(item.created_at) + " (horário de Brasília)";
+      const message = document.createElement("div"); message.className = "feedback-message"; message.textContent = item.message;
       meta.append(who, when); card.append(meta, message); list.append(card);
     });
   }
   async function loadItems() {
     status(dashboardStatus, "Carregando manifestações...");
-    const { data, error } = await client.from("manifestacoes").select("id,nome,mensagem,enviado_em").order("enviado_em", { ascending: false }).limit(1000);
+    const { data, error } = await client.from("escuta_submissions").select("id,employee_name,message,created_at").order("created_at", { ascending: false }).limit(1000);
     if (error) {
       console.error(error);
       status(dashboardStatus, "Não foi possível carregar. Confira se a conta está autorizada e se as políticas RLS foram configuradas corretamente.", "error");

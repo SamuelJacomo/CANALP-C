@@ -1,8 +1,5 @@
-/*
-  Preencha com a URL do projeto Supabase e a chave pública anon/publishable.
-  NUNCA coloque a chave service_role neste arquivo ou em qualquer arquivo público.
-*/
+/* Chave pública do Supabase — segura para uso no navegador. Nunca use service_role aqui. */
 window.PC_CONFIG = {
-  SUPABASE_URL: "COLE_AQUI_A_URL_DO_PROJETO",
-  SUPABASE_ANON_KEY: "COLE_AQUI_A_CHAVE_PUBLICA_ANON"
+  SUPABASE_URL: "https://owntyihasuytqiwtpyjd.supabase.co",
+  SUPABASE_ANON_KEY: "sb_publishable_zqMp0zLJih8ddcKdDjT0rw_VofjVZHj"
 };

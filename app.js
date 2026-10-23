@@ -20,7 +20,7 @@
     button.disabled = true; button.textContent = "Enviando..."; showStatus("", "");
     try {
       const client = window.supabase.createClient(cfg.SUPABASE_URL, cfg.SUPABASE_ANON_KEY);
-      const { error } = await client.from("manifestacoes").insert([{ nome, mensagem }]);
+      const { error } = await client.from("escuta_submissions").insert([{ employee_name: nome, message: mensagem }]);
       if (error) throw error;
       form.reset();
       showStatus("Sua manifestação foi enviada. Obrigado por compartilhar sua opinião com o P&C.", "success");
